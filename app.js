@@ -4,10 +4,14 @@ const urlRoutes = require("./api/urls/urls.routes");
 const userRoutes = require("./api/users/users.routes");
 const notFoundHandler = require("./middlewares/notFoundHandler");
 const errorHandler = require("./middlewares/errorHandler");
+const passport = require("passport");
+const { localStrategy } = require("./middlewares/passport");
 
 
 const app = express();
 connectDb();
+app.use(passport.initialize());
+passport.use("local", localStrategy);
 
 app.use(express.json());
 

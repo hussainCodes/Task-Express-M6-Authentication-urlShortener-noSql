@@ -36,6 +36,8 @@ exports.signup = async (req, res) => {
 
 exports.signin = async (req, res) => {
   try {
+    const token = generateToken(req.user);
+    return res.status(200).json({token:token});
   } catch (err) {
     res.status(500).json("Server Error");
   }
