@@ -48,13 +48,8 @@ exports.deleteUrl = async (req, res) => {
       }else {
         return res.status(404).json("No URL Found");
       }
-
     }
-   
-   
-    if (url) {
-    
-  } catch (err) {
+    catch (err) {
     next(err);
   }
 };
