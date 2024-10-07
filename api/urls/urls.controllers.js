@@ -43,8 +43,10 @@ exports.deleteUrl = async (req, res) => {
         await Url.findByIdAndDelete(url._id);
         return res.status(201).json("Deleted");
       } else {
-        return res.status(404).json("No URL Found");
+        return res.status(401).json("Unautorized");
       }
+      }else {
+        return res.status(404).json("No URL Found");
       }
 
     }
